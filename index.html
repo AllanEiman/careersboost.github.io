@@ -131,6 +131,46 @@
   <footer>
     <p>“Your Future Starts Here.” | © 2025 Career Boost Namibia</p>
   </footer>
+<!-- === CV Upload Section === -->
+<section id="upload" style="background:#f1f4f8;padding:30px;border-radius:12px;margin-top:30px;text-align:center;">
+  <h2>Upload Your CV</h2>
+  <p>Send your CV directly to Career Boost Namibia for review and rewriting assistance.</p>
+
+  <form id="cvUploadForm" enctype="multipart/form-data" style="margin-top:20px;">
+    <input type="text" name="name" placeholder="Your Full Name" required
+           style="padding:10px;width:80%;max-width:300px;margin-bottom:10px;border-radius:6px;border:1px solid #ccc;"><br>
+    <input type="email" name="email" placeholder="Your Email" required
+           style="padding:10px;width:80%;max-width:300px;margin-bottom:10px;border-radius:6px;border:1px solid #ccc;"><br>
+    <input type="file" name="cvfile" accept=".pdf,.doc,.docx" required
+           style="padding:10px;width:80%;max-width:300px;margin-bottom:15px;border-radius:6px;border:1px solid #ccc;"><br>
+    <button type="submit" class="btn">Upload CV</button>
+  </form>
+
+  <p id="uploadStatus" style="margin-top:15px;font-weight:600;"></p>
+</section>
+
+<script>
+  document.getElementById("cvUploadForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const status = document.getElementById("uploadStatus");
+    status.innerText = "Uploading your CV... ⏳";
+
+    const formData = new FormData(e.target);
+
+    // Example upload destination (you can replace this with your backend or Formspree link)
+    const response = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
+      method: "POST",
+      body: formData
+    });
+
+    if (response.ok) {
+      status.innerText = "✅ CV uploaded successfully! We’ll review it soon.";
+      e.target.reset();
+    } else {
+      status.innerText = "❌ There was an issue uploading your CV. Please try again.";
+    }
+  });
+</script>
 
 </body>
 </html>
