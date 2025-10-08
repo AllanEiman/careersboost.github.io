@@ -132,19 +132,27 @@
     <p>“Your Future Starts Here.” | © 2025 Career Boost Namibia</p>
   </footer>
 <!-- === CV Upload Section === -->
-<section id="upload" style="background:#f1f4f8;padding:30px;border-radius:12px;margin-top:30px;text-align:center;">
+<section id="upload" style="background:#f0f4f8;padding:40px;border-radius:12px;text-align:center;">
   <h2>Upload Your CV</h2>
-  <p>Send your CV directly to Career Boost Namibia for review and rewriting assistance.</p>
+  <p>Submit your CV below and let <b>Career Boost Namibia</b> help you stand out!</p>
 
-  <form id="cvUploadForm" action="https://formspree.io/f/myzndnlg" method="POST" enctype="multipart/form-data" style="margin-top:20px;">
-    <input type="text" name="name" placeholder="Your Full Name" required
+  <form action="https://getform.io/f/bmdywmza" method="POST" enctype="multipart/form-data" style="margin-top:20px;">
+    <input type="text" name="name" placeholder="Full Name" required
            style="padding:10px;width:80%;max-width:300px;margin-bottom:10px;border-radius:6px;border:1px solid #ccc;"><br>
-    <input type="email" name="email" placeholder="Your Email" required
+    <input type="email" name="email" placeholder="Email Address" required
            style="padding:10px;width:80%;max-width:300px;margin-bottom:10px;border-radius:6px;border:1px solid #ccc;"><br>
     <input type="file" name="cvfile" accept=".pdf,.doc,.docx" required
            style="padding:10px;width:80%;max-width:300px;margin-bottom:15px;border-radius:6px;border:1px solid #ccc;"><br>
-    <button type="submit" class="btn">Upload CV</button>
+    <textarea name="message" placeholder="Tell us what job you’re applying for..." rows="3"
+              style="padding:10px;width:80%;max-width:300px;margin-bottom:15px;border-radius:6px;border:1px solid #ccc;"></textarea><br>
+    <button type="submit" style="background:#0077cc;color:white;padding:10px 20px;border:none;border-radius:6px;cursor:pointer;">
+      Submit CV
+    </button>
   </form>
+
+  <p style="margin-top:15px;color:#333;">We'll review your CV and get back to you soon.</p>
+</section>
+
 
   <p id="uploadStatus" style="margin-top:15px;font-weight:600;"></p>
 </section>
