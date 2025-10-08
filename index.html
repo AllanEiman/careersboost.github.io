@@ -134,14 +134,69 @@
 <!-- === CV Upload Section === -->
 <section id="upload" style="background:#f1f4f8;padding:30px;border-radius:12px;margin-top:30px;text-align:center;">
   <h2>Upload Your CV</h2>
-  <p>Submit your CV through our secure Google Form below 👇</p>
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdWQB96YlbpX4fGRa0ruVz30i1iHvjdTtY-OwnuSkIp1caN8w/viewform?usp=header" target="_blank" class="btn">Upload CV via Google Form</a>
-  <p style="margin-top:15px;font-size:0.95rem;">We’ll review your CV and get back to you within 24–48 hours.</p>
+  <p>Send your CV directly to Career Boost Namibia for review and rewriting assistance.</p>
+
+  <form id="cvUploadForm" action="https://formspree.io/f/myzndnlg" method="POST" enctype="multipart/form-data" style="margin-top:20px;">
+    <input type="text" name="name" placeholder="Your Full Name" required
+           style="padding:10px;width:80%;max-width:300px;margin-bottom:10px;border-radius:6px;border:1px solid #ccc;"><br>
+    <input type="email" name="email" placeholder="Your Email" required
+           style="padding:10px;width:80%;max-width:300px;margin-bottom:10px;border-radius:6px;border:1px solid #ccc;"><br>
+    <input type="file" name="cvfile" accept=".pdf,.doc,.docx" required
+           style="padding:10px;width:80%;max-width:300px;margin-bottom:15px;border-radius:6px;border:1px solid #ccc;"><br>
+    <button type="submit" class="btn">Upload CV</button>
+  </form>
+
+  <p id="uploadStatus" style="margin-top:15px;font-weight:600;"></p>
 </section>
+
+<script>
+  document.getElementById("cvUploadForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const status = document.getElementById("uploadStatus");
+    status.innerText = "Uploading your CV... ⏳";
+
+    const formData = new FormData(e.target);
+    const response = await fetch(e.target.action, {
+      method: "POST",
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      status.innerText = "✅ CV uploaded successfully! We’ll review it soon.";
+      e.target.reset();
+    } else {
+      status.innerText = "❌ There was an issue uploading your CV. Please try again.";
+    }
+  });
+</script>
 
 
   <p id="uploadStatus" style="margin-top:15px;font-weight:600;"></p>
 </section>
+
+<script>
+  document.getElementById("cvUploadForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const status = document.getElementById("uploadStatus");
+    status.innerText = "Uploading your CV... ⏳";
+
+    const formData = new FormData(e.target);
+    const response = await fetch(e.target.action, {
+      method: "POST",
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      status.innerText = "✅ CV uploaded successfully! We’ll review it soon.";
+      e.target.reset();
+    } else {
+      status.innerText = "❌ There was an issue uploading your CV. Please try again.";
+    }
+  });
+</script>
+
 
 <script>
   document.getElementById("cvUploadForm").addEventListener("submit", async (e) => {
